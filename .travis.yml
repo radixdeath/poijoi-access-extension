@@ -1,0 +1,10 @@
+language: java
+jdk: oraclejdk7
+
+notifications:
+  slack: bristolopensource:naGu8ITR6cP3rUsVEUh98JrC#poijoi
+
+before_install:
+ - chmod +x gradlew
+
+script: ./gradlew check
