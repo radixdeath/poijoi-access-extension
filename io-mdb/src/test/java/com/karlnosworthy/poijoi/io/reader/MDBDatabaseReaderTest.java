@@ -22,7 +22,7 @@ public class MDBDatabaseReaderTest {
 	private MDBDatabaseReader reader;
 	
 	@Before
-	public void setup() {
+	public void setup() throws Exception {
 		reader = new MDBDatabaseReader();
 	}
 	
@@ -71,19 +71,19 @@ public class MDBDatabaseReaderTest {
 			Map<String, TableDefinition> tableDefinitions = metaData
 					.getTableDefinitions();
 			assertEquals(1, tableDefinitions.size());
-
-			TableDefinition tableDefinition = tableDefinitions.get("Sheet1");
+			
+			TableDefinition tableDefinition = tableDefinitions.get("TABLEONE");
 			assertNotNull(tableDefinition);
 
 			assertEquals(5, tableDefinition.getColumnCount());
 			Map<String, ColumnDefinition> columnDefinitions = tableDefinition
 					.getColumnDefinitions();
 
-			assertTrue(columnDefinitions.containsKey("id"));
-			assertTrue(columnDefinitions.containsKey("col1String"));
-			assertTrue(columnDefinitions.containsKey("col2Date"));
-			assertTrue(columnDefinitions.containsKey("col3Integer"));
-			assertTrue(columnDefinitions.containsKey("col4Decimal"));
+			assertTrue(columnDefinitions.containsKey("ID"));
+			assertTrue(columnDefinitions.containsKey("COL1STRING"));
+			assertTrue(columnDefinitions.containsKey("COL2DATE"));
+			assertTrue(columnDefinitions.containsKey("COL3INTEGER"));
+			assertTrue(columnDefinitions.containsKey("COL4DECIMAL"));
 
 		} finally {
 			if (connection != null) {
@@ -92,5 +92,4 @@ public class MDBDatabaseReaderTest {
 		}
 
 	}	
-	
 }

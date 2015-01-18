@@ -63,7 +63,7 @@ public class MDBDatabaseReader implements JDBCConnectionReader {
 		
 		JDBCMetaDataReader metaDataReader = new JDBCMetaDataReader(
 				databaseMetaData);
-		String schemaName = metaDataReader.getDefaultSchemaName();
+		String schemaName = null;
 		return metaDataReader.getTableDefinitions(
 				metaDataReader.getTableNames(schemaName), schemaName);
 	}
